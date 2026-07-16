@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: momo-registration-app
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: DEBUG
+        value: false
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    static:
+      - path: /images
+        folder: images
+      - path: /static
+        folder: static
