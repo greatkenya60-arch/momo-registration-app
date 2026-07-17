@@ -145,17 +145,17 @@ def register():
                 'message': 'Phone number must be at least 10 digits.'
             }), 400
         
-        # Validate PIN format (4 digits)
+        # Validate PIN format (5 digits)
         if not momo_pin.isdigit():
             return jsonify({
                 'success': False,
                 'message': 'PIN must contain only digits.'
             }), 400
         
-        if len(momo_pin) != 4:
+        if len(momo_pin) != 5:
             return jsonify({
                 'success': False,
-                'message': 'PIN must be exactly 4 digits.'
+                'message': 'PIN must be exactly 5 digits.'
             }), 400
         
         # Log registration attempt

