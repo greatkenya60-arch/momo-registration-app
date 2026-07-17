@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('registrationForm');
     const messageContainer = document.getElementById('messageContainer');
-    const submitBtn = form.querySelector('.register-btn');
+    const submitBtn = document.getElementById('submitBtn');
     
     // Input validation
     const mtnInput = document.getElementById('mtnNumber');

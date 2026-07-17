@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,137 +7,70 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     padding: 20px;
 }
 
 .container {
-    width: 100%;
-    max-width: 400px;
-}
-
-.card {
     background: white;
-    border-radius: 20px;
     padding: 40px 30px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: slideUp 0.5s ease-out;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 360px;
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Header Styles - MoMo from MTN */
-.header {
+/* Logo Image */
+.logo-container {
     text-align: center;
     margin-bottom: 30px;
 }
 
 .logo {
-    max-width: 80px;
+    max-width: 120px;
     height: auto;
-    margin-bottom: 8px;
     border-radius: 10px;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
+.form-group {
+    margin-bottom: 20px;
 }
 
-.brand-momo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #ff6b00;
-    letter-spacing: -0.5px;
-}
-
-.brand-from {
-    font-size: 16px;
-    font-weight: 400;
-    color: #888;
-    text-transform: lowercase;
-}
-
-.brand-mtn {
-    font-size: 28px;
-    font-weight: 700;
-    color: #ffcc00;
-    letter-spacing: -0.5px;
-}
-
-/* Form Styles */
-.registration-form {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-group label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #555;
-    letter-spacing: 1px;
-}
-
-.input-group input {
-    padding: 14px 16px;
-    border: 2px solid #e0e0e0;
+input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e5e7eb;
     border-radius: 12px;
     font-size: 16px;
+    color: #374151;
+    background-color: #f9fafb;
     transition: all 0.3s ease;
+}
+
+input:focus {
     outline: none;
-    background: #f8f9fa;
-    width: 100%;
+    border-color: #3b82f6;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.input-group input:focus {
-    border-color: #667eea;
-    background: white;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-}
-
-.input-group input::placeholder {
-    color: #aaa;
-}
-
-.input-group input:invalid {
-    border-color: #ff6b6b;
-}
-
-.input-group input:invalid:focus {
-    box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
+input::placeholder {
+    color: #9ca3af;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 /* PIN Input with Toggle */
-.pin-input-wrapper {
+.pin-wrapper {
     position: relative;
-    width: 100%;
 }
 
-.pin-input-wrapper input {
+.pin-wrapper input {
     padding-right: 50px;
 }
 
@@ -147,41 +82,41 @@ body {
     cursor: pointer;
     font-size: 20px;
     user-select: none;
-    color: #888;
+    color: #9ca3af;
     background: transparent;
     border: none;
     padding: 5px;
 }
 
 .toggle-pin:hover {
-    color: #333;
+    color: #374151;
 }
 
-/* Register Button */
-.register-btn {
+.btn {
+    width: 100%;
+    padding: 16px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    padding: 16px;
     border-radius: 12px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 10px;
 }
 
-.register-btn:hover {
+.btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
 }
 
-.register-btn:active {
+.btn:active {
     transform: translateY(0);
 }
 
-.register-btn:disabled {
+.btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
@@ -189,12 +124,13 @@ body {
 
 /* Message Container */
 .message-container {
-    margin-top: 20px;
+    margin-top: 15px;
     padding: 12px;
     border-radius: 10px;
     display: none;
     text-align: center;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .message-container.success {
@@ -211,27 +147,23 @@ body {
     border: 1px solid #f5c6cb;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 480px) {
-    .card {
+    .container {
         padding: 30px 20px;
     }
     
-    .brand-momo, .brand-mtn {
-        font-size: 24px;
-    }
-    
     .logo {
-        max-width: 60px;
+        max-width: 80px;
     }
     
-    .input-group input {
+    input {
         font-size: 14px;
-        padding: 12px 14px;
+        padding: 14px 16px;
     }
     
-    .register-btn {
-        font-size: 16px;
+    .btn {
+        font-size: 14px;
         padding: 14px;
     }
 }

