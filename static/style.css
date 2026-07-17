@@ -28,13 +28,45 @@ body {
 /* Logo Image */
 .logo-container {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
 }
 
 .logo {
-    max-width: 120px;
+    max-width: 100px;
     height: auto;
     border-radius: 10px;
+}
+
+/* Brand Text: MoMo from MTN */
+.brand {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.brand-momo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff6b00;
+    letter-spacing: -0.5px;
+}
+
+.brand-from {
+    font-size: 14px;
+    font-weight: 400;
+    color: #888;
+    text-transform: lowercase;
+}
+
+.brand-mtn {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffcc00;
+    letter-spacing: -0.5px;
 }
 
 .form-group {
@@ -154,7 +186,15 @@ input::placeholder {
     }
     
     .logo {
-        max-width: 80px;
+        max-width: 70px;
+    }
+    
+    .brand-momo, .brand-mtn {
+        font-size: 22px;
+    }
+    
+    .brand-from {
+        font-size: 12px;
     }
     
     input {

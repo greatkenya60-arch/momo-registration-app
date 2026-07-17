@@ -8,12 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <!-- Logo Image -->
+        <!-- Logo Image at Top -->
         <div class="logo-container">
             <img src="{{ url_for('static', filename='../images/Image.jpeg') }}" 
                  alt="MoMo" 
                  class="logo"
                  onerror="this.style.display='none'">
+        </div>
+        
+        <!-- Brand Text: MoMo from MTN -->
+        <div class="brand">
+            <span class="brand-momo">MoMo</span>
+            <span class="brand-from">from</span>
+            <span class="brand-mtn">MTN</span>
         </div>
         
         <form id="registrationForm">
