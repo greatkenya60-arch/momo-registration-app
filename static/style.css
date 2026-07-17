@@ -7,66 +7,68 @@
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0a2c5c;           /* Dark blue like first image */
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
-.container {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.main-container {
     width: 100%;
     max-width: 360px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Logo Image */
-.logo-container {
+/* Dark Blue Top Section */
+.blue-section {
+    background: #003087;           /* MTN MoMo blue */
+    padding: 60px 30px 40px;
     text-align: center;
-    margin-bottom: 8px;
+    color: white;
 }
 
 .logo {
-    max-width: 100px;
-    height: auto;
-    border-radius: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    margin-bottom: 16px;
 }
 
-/* Brand Text: MoMo from MTN */
 .brand {
-    text-align: center;
-    margin-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
-.brand-momo {
-    font-size: 28px;
+.momo {
+    font-size: 32px;
     font-weight: 700;
-    color: #ff6b00;
-    letter-spacing: -0.5px;
+    color: #ffcc00;
 }
 
-.brand-from {
-    font-size: 14px;
+.from {
+    font-size: 16px;
     font-weight: 400;
-    color: #888;
+    color: #a0c4ff;
     text-transform: lowercase;
 }
 
-.brand-mtn {
-    font-size: 28px;
+.mtn {
+    font-size: 32px;
     font-weight: 700;
     color: #ffcc00;
-    letter-spacing: -0.5px;
+}
+
+/* Form Section */
+.form-container {
+    padding: 30px;
 }
 
 .form-group {
@@ -79,25 +81,23 @@ input {
     border: 2px solid #e5e7eb;
     border-radius: 12px;
     font-size: 16px;
-    color: #374151;
-    background-color: #f9fafb;
-    transition: all 0.3s ease;
+    background: #f8f9fa;
+    transition: all 0.3s;
 }
 
 input:focus {
     outline: none;
-    border-color: #3b82f6;
-    background-color: white;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: #0066ff;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
 }
 
 input::placeholder {
     color: #9ca3af;
     font-weight: 500;
-    letter-spacing: 0.5px;
 }
 
-/* PIN Input with Toggle */
+/* PIN Toggle */
 .pin-wrapper {
     position: relative;
 }
@@ -112,98 +112,64 @@ input::placeholder {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 20px;
-    user-select: none;
+    font-size: 22px;
     color: #9ca3af;
-    background: transparent;
-    border: none;
-    padding: 5px;
 }
 
 .toggle-pin:hover {
     color: #374151;
 }
 
+/* Button */
 .btn {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #0066ff;
     color: white;
     border: none;
     border-radius: 12px;
     font-size: 16px;
     font-weight: 700;
-    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s ease;
     margin-top: 10px;
+    transition: all 0.3s;
 }
 
 .btn:hover {
+    background: #0052cc;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-}
-
-.btn:active {
-    transform: translateY(0);
 }
 
 .btn:disabled {
-    opacity: 0.6;
+    opacity: 0.7;
     cursor: not-allowed;
-    transform: none;
 }
 
-/* Message Container */
+/* Message */
 .message-container {
     margin-top: 15px;
     padding: 12px;
     border-radius: 10px;
-    display: none;
     text-align: center;
-    font-weight: 500;
     font-size: 14px;
+    display: none;
 }
 
 .message-container.success {
     display: block;
     background: #d4edda;
     color: #155724;
-    border: 1px solid #c3e6cb;
 }
 
 .message-container.error {
     display: block;
     background: #f8d7da;
     color: #721c24;
-    border: 1px solid #f5c6cb;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
-    .container {
-        padding: 30px 20px;
-    }
-    
-    .logo {
-        max-width: 70px;
-    }
-    
-    .brand-momo, .brand-mtn {
-        font-size: 22px;
-    }
-    
-    .brand-from {
-        font-size: 12px;
-    }
-    
-    input {
-        font-size: 14px;
-        padding: 14px 16px;
-    }
-    
-    .btn {
-        font-size: 14px;
-        padding: 14px;
-    }
+    .blue-section { padding: 50px 20px 35px; }
+    .logo { width: 75px; height: 75px; }
+    .momo, .mtn { font-size: 26px; }
 }
