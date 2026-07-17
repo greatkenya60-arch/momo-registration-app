@@ -38,35 +38,49 @@ body {
     }
 }
 
+/* Header Styles - MoMo from MTN */
 .header {
     text-align: center;
     margin-bottom: 30px;
 }
 
 .logo {
-    max-width: 100px;
+    max-width: 80px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     border-radius: 10px;
 }
 
-.header h1 {
-    color: #333;
-    font-size: 24px;
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.brand-momo {
+    font-size: 28px;
     font-weight: 700;
-    letter-spacing: 1px;
+    color: #ff6b00;
+    letter-spacing: -0.5px;
 }
 
-.header h1::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    margin: 10px auto 0;
-    border-radius: 2px;
+.brand-from {
+    font-size: 16px;
+    font-weight: 400;
+    color: #888;
+    text-transform: lowercase;
 }
 
+.brand-mtn {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffcc00;
+    letter-spacing: -0.5px;
+}
+
+/* Form Styles */
 .registration-form {
     display: flex;
     flex-direction: column;
@@ -74,7 +88,6 @@ body {
 }
 
 .input-group {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -95,6 +108,7 @@ body {
     transition: all 0.3s ease;
     outline: none;
     background: #f8f9fa;
+    width: 100%;
 }
 
 .input-group input:focus {
@@ -115,20 +129,35 @@ body {
     box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
 }
 
+/* PIN Input with Toggle */
+.pin-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.pin-input-wrapper input {
+    padding-right: 50px;
+}
+
 .toggle-pin {
     position: absolute;
     right: 16px;
-    top: 43px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
     font-size: 20px;
     user-select: none;
     color: #888;
+    background: transparent;
+    border: none;
+    padding: 5px;
 }
 
 .toggle-pin:hover {
     color: #333;
 }
 
+/* Register Button */
 .register-btn {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -158,6 +187,7 @@ body {
     transform: none;
 }
 
+/* Message Container */
 .message-container {
     margin-top: 20px;
     padding: 12px;
@@ -187,12 +217,12 @@ body {
         padding: 30px 20px;
     }
     
-    .header h1 {
-        font-size: 20px;
+    .brand-momo, .brand-mtn {
+        font-size: 24px;
     }
     
     .logo {
-        max-width: 80px;
+        max-width: 60px;
     }
     
     .input-group input {

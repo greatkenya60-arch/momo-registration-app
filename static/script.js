@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const mtnInput = document.getElementById('mtnNumber');
     const pinInput = document.getElementById('momoPin');
     
-    // Format MTN number as user types (allow spaces and plus sign)
+    // Format MTN number (allow spaces and plus sign)
     mtnInput.addEventListener('input', function(e) {
-        // Remove any non-digit characters except + and space
         this.value = this.value.replace(/[^\d\s\+]/g, '');
     });
     
@@ -57,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 showMessage(data.message, 'success');
                 form.reset();
                 
-                // Remove success message after 5 seconds
                 setTimeout(() => {
                     hideMessage();
                 }, 5000);
@@ -68,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             showMessage('An error occurred. Please try again.', 'error');
         } finally {
-            // Re-enable submit button
             submitBtn.disabled = false;
             submitBtn.textContent = 'REGISTER';
         }
@@ -82,7 +79,6 @@ function showMessage(message, type) {
     container.className = 'message-container ' + type;
     container.style.display = 'block';
     
-    // Auto-hide after 8 seconds
     clearTimeout(window.messageTimeout);
     window.messageTimeout = setTimeout(() => {
         hideMessage();
