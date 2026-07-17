@@ -9,14 +9,15 @@
 <body>
     <div class="main-container">
         
-        <!-- Big Photo at Top (2/3) -->
+        <!-- Top Image Section -->
         <div class="photo-header">
             <img src="{{ url_for('static', filename='images/Image.jpeg') }}" 
-                 alt="Header Photo" 
-                 class="header-image">
+                 alt="Header Image" 
+                 class="header-image"
+                 onerror="this.style.backgroundColor='#003087'; this.alt='Image failed to load';">
         </div>
 
-        <!-- Form at Bottom (1/3) -->
+        <!-- Form Section -->
         <div class="form-section">
             <form id="registrationForm">
                 <input type="tel" 
