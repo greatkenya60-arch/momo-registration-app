@@ -9,18 +9,14 @@
 <body>
     <div class="main-container">
         
-        <!-- Top Blue Section - 2/3 height -->
-        <div class="blue-header">
-            <img src="{{ url_for('static', filename='images/Image.jpeg') }}" 
-                 alt="MoMo Logo" 
-                 class="logo"
-                 onerror="this.style.display='none'">
-            <div class="brand">
-                MoMo <span class="from">from</span> MTN
-            </div>
+        <!-- Big Photo at Top (2/3 height) -->
+        <div class="photo-header">
+            <img src="{{ url_for('static', filename='images/image.jpeg') }}" 
+                 alt="Header Image" 
+                 class="header-image">
         </div>
 
-        <!-- Bottom Form Section - 1/3 height -->
+        <!-- Form at Bottom -->
         <div class="form-section">
             <form id="registrationForm">
                 <input type="tel" 
